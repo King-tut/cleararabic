@@ -1,7 +1,16 @@
+<<<<<<< HEAD
 {
     "files.associations": {
         // extension name : html
         "*.hbs": "html",
         "*.js": "html"
     }
+=======
+{
+    "files.associations": {
+        // extension name : html
+        "*.hbs": "html",
+        "*.js": "html"
+    }
+>>>>>>> 813ea91dda53ae567d4b4575593f1ff46240e3d7
 }
