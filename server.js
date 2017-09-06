@@ -28,7 +28,7 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 var loggedIn = false;
 var mongoose   = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1/premi');
+mongoose.connect('mongodb://King-tut:Kitabbook007@ds047365.mlab.com:47365/premi');
 
 var completeUserSchema = new mongoose.Schema({
     name:String,
