@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        // extension name : html
-        "*.hbs": "html",
-        "*.js": "html"
-    }
-}
