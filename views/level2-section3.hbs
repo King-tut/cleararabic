@@ -1,0 +1,65 @@
+<link rel="stylesheet" href="/public/css/level1.css">
+<link rel="stylesheet" href="/public/css/landing.css">
+<link rel="stylesheet" href="https://bootswatch.com/superhero/bootstrap.css">
+<script src="/public/js/jquery.js"> </script>
+<script src="/public/js/jquery-ui.js"></script>
+
+{{> desktop}}
+
+<div class="container">
+<h2>You are reading Arabic!</h2>
+<p>If you made it this far, than you are already reading the Arabic Quran!!</p>
+<br>
+<h3>Hamza and Sukoon</h3>
+<br>
+<p>It's kinda a moote point to discuss these matters, as you have made it this far without
+    a real detailed explanation of the two characters. But, just to solidify the matter, we will breifly discuss
+    the two.
+</p>
+
+<h3>Sukoon: بِسْمِ </h3><br>
+<p>Sukoon is the circle character above the SEEN. It simpy makes the letter silent. Like say for instance as in English, the 
+    the letter "k" is silent in the word Knowledge. That's it, very simple. 
+</p>
+<br>
+<hr>
+
+<h3>Hamza: <img src="public/images/hamza.png" style="max-height:60px; max-width:60px;"></h3><br>
+<p>Hamza makes the letter it is above have a long A sound. It is typically above the ALIF. There are lots of rules to Arabic that we have not covered and will not cover in this 
+    course. To inundate the person with all those rules
+    of grammer makes things overly complicated and can discourage the person. As you are proof, one does not need all of that in order to start to be able to read the book of GOD.
+
+</p>
+<br>
+
+<h3>Here is another resource video</h3><br>
+<iframe width="360" height="215" src="https://www.youtube.com/embed/xbWKkVyC8Ww" frameborder="0" allowfullscreen></iframe>
+<br><hr>
+<a role="button" class="btn btn-success" href="/level3-section1" id="post-level3">Advance</a>
+</div>
+<script>
+$(document).ready(function(){
+ $('#post-level3').on('click', function(e){
+     var level = 3.1;
+   localStorage.setItem('level', 3.1);
+   var name = localStorage.getItem('name');
+
+   $.ajax({
+     type: 'POST',
+     url: '/level3-section1',
+     data: {name:name, level:level},
+     success: function(res){
+
+     }
+
+   });
+
+
+ });
+
+});
+
+
+
+
+</script>

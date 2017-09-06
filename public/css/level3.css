@@ -1,0 +1,46 @@
+body{
+    height:700px;
+}
+.letters{
+    background:#4e5d6c;
+    height:70px;
+    width:140px;
+}
+
+
+
+.make-big{
+ font-size: 40px;
+
+}
+
+#answer-holder{
+    height: 270px;
+    width:300px;
+    background: white;
+    border: 4px dotted black;
+    margin-bottom:60px;
+}
+
+.final-ps{
+    font-size:19px;
+    margin-left:10px;
+}
+
+
+
+
+
+
+
+
+
+footer{
+   position: relative;
+  margin-top: -180px;
+  /* negative value of footer height */
+  height: 180px;
+  clear: both;
+   
+    background-color:#4e5d6c;
+}

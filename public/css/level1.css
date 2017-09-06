@@ -1,0 +1,98 @@
+
+#fathiaL1{
+ min-height:370px;
+ 
+ 
+
+}
+
+#keyCaption{
+    background:gray;
+    font-size: 12px;
+}
+
+.all{
+    max-height:110px;
+    min-width: 180px;
+}
+
+#fathia-vid{
+    margin-top:100px;
+}
+
+.user-stats{
+height:100px;
+background:#4e5d6c;
+
+}
+
+.user-stats ul li{
+    list-style: none;
+    display: inline-block;
+    padding-left:35px;
+    padding-right:35px;
+}
+
+.letters{
+    background:#4e5d6c;
+    height: 70px;
+    width:170px;
+    margin-left:7px;
+    
+}
+
+
+
+#answer-holder,#answer-holder-2,#answer-holder-3{
+    height: 270px;
+    width:300px;
+    background: white;
+    border: 4px dotted black;
+    margin-bottom:60px;
+}
+
+
+td{
+ padding:4px;
+ border:2px solid white;
+}
+
+.make-big{
+    font-size: 40px;
+}
+
+ul li {
+    list-style: none;
+    display: inline-block;
+    padding-right: 40px;
+}
+
+#login-style{
+    height:700px;
+    background: #4e5d6c;
+    width:500px;
+}
+
+
+
+#pay-area{
+    background:#4e5d6c;
+    height:600px;
+    
+    float:right;
+}
+
+tr{
+    padding-right:8px;
+}
+
+footer{
+   position: relative;
+  margin-top: -180px;
+  /* negative value of footer height */
+  height: 180px;
+  clear: both;
+  width:100%;
+   
+    background-color:#4e5d6c;
+}

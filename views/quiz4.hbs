@@ -1,0 +1,274 @@
+<link rel="stylesheet" href="/public/css/level1.css">
+
+<link rel="stylesheet" href="https://bootswatch.com/superhero/bootstrap.css">
+<script src="/public/js/jquery.js"> </script>
+<script src="/public/js/jquery-ui.js"></script>
+{{> desktop}}
+<body style="height:700px; background:#4e5d6c;">
+ <div class="row">
+     <div class="col-md-12">
+ <p style="text-align:center; margin-left:70px;">Take your time and read the questions carefully. You can use your mouse to drag and drop the correct letter into the boxed area labeled "Answer Area" </p><br>
+ <div id="info">
+ <p  style="margin-left:520px;">Press the start button when ready</p>
+ <br><br>
+ <button class="btn btn-success" id="q4-start"  style="margin-left:600px;margin-top:50px;">Start</button>
+  </div>
+
+     </div>
+ </div>
+
+
+
+<div class="container">
+    <div class="row">
+     <div class="col-md-5">
+         <div id="sample-div">
+           
+           <div class="landing-sample">
+         
+          <h3>Which is the Arabic letter ZA? Drag and drop it into the answer area</h3>
+         <table class="table">
+               <tr>
+      <td id="wrong" class="letters make-big">و</td>
+      <td id="wrong" class="letters make-big">ح</td>
+      <td id="correct" class="letters make-big">ز</td>
+               </tr>
+         </table>
+          </div>
+
+          <div class="landing-sample">
+          <h3>Which is the Arabic letter YA? Drag and drop it into the answer area</h3>
+           <table class="table">
+               <tr>
+      <td id="correct" class="letters make-big">ي</td>
+      <td id="wrong" class="letters make-big">ا</td>
+      <td id="wrong" class="letters make-big">و</td>
+      </tr>
+        </table>
+          </div>
+
+           <div class="landing-sample">
+          <h3>Which is the Arabic letter DAL? Drag and drop it into the answer area</h3>
+       <table class="table">
+               <tr>
+      <td id="correct" class="letters make-big">د</td>
+      <td id="wrong" class="letters make-big">ر</td>
+      <td id="wrong" class="letters make-big">ي</td>
+       </tr>
+       </table>
+          </div>
+
+          <div class="landing-sample">
+          <h3>Which is the Arabic letter KAF? Drag and drop it into the answer area</h3>
+      <table class="table">
+               <tr>
+      <td id="correct" class="letters make-big">ك</td>
+      <td id="wrong" class="letters make-big">ج</td>
+      <td id="wrong" class="letters make-big">ن</td>
+               </tr>
+               </table>
+          </div>
+
+          <div class="landing-sample">
+          <h3>Which is the Arabic letter THAL? Drag and drop it into the answer area</h3>
+      <table class="table">
+               <tr>
+      <td id="wrong" class="letters make-big">ز</td>
+      <td id="wrong" class="letters make-big">ر</td>
+      <td id="correct" class="letters make-big">ذ</td>
+               </tr>
+               </table>
+          </div>
+
+           <div class="landing-sample">
+          <h3>Which is the Arabic letter RA? Drag and drop it into the answer area</h3>
+      <table class="table">
+               <tr>
+      <td id="wrong" class="letters make-big">ز</td>
+      <td id="correct" class="letters make-big">ر</td>
+      <td id="wrong" class="letters make-big ">ل</td>
+               </tr>
+               </table>
+          </div>
+
+          <div class="landing-sample">
+          <h3>Which is the Arabic word RAAB? Drag and drop it into the answer area</h3>
+      <table class="table">
+               <tr>
+      <td id="wrong" class="letters make-big">زوجة</td>
+      <td id="wrong" class="letters make-big">ذكير</td>
+      <td id="correct" class="letters make-big">رَبِّ</td>
+               </tr>
+               </table>
+          </div>
+
+         
+         
+         
+         
+         
+         
+         
+        
+         </div><!--end sample div-->
+     
+       <button id="next" style="margin-left:180px; margin-top:70px;" class="btn btn-info counter">Next</button>
+       
+       <button id="q4-submit" class="btn btn-success">Submit</button>
+      
+     
+
+    </div><!--end col-->
+  
+  <div class="col-md-4">
+        <h3>Answer here</h3><p id="here"></p><br><br>
+      <div id="answer-holder"></div>
+       
+       
+         </div>
+         
+
+
+
+    </div><!--end row-->
+     
+       
+    </div><!--end container-->
+
+
+</body>
+
+    <script>
+    $(document).ready(function(){
+        $('.container').hide();
+        $('#q4-submit').hide();
+        $('#here').hide();
+        var ans = '';
+    
+
+
+        
+    $('#q4-start').on('click', function(){
+        
+          $('.container').show();
+          $('#q4-start').hide();
+          $('#info').hide();
+          $('.letters').draggable({
+              stack: '.letters'
+          });
+          $('#answer-holder').droppable({
+              drop: function(event, ui){
+                  var here  = $('#here');
+              ans = $(ui.draggable).attr('id');
+               here.text(ans);
+              } 
+              
+          });
+   
+      
+       
+       
+ });
+
+
+
+
+   
+ $("#sample-div div").each(function(e) {
+   
+    if (e != 0){
+      $(this).hide();
+    }
+
+    
+
+    
+        
+   });
+var score = 0;
+ $("#next").click(function(){
+ 
+    if ($("#sample-div div:visible").next().length != 0){
+       $("#sample-div div:visible").next().fadeIn().prev().hide();
+      
+    }
+       
+         
+    else {
+        $("#sample-div div:visible").fadeOut();
+        $("#sample-div div:first").fadeIn();
+        
+    }
+  
+  
+   
+   var here = $('#here').text();
+    if(here  == "correct"){
+     score++;
+     $('#here').css('color', 'green');
+    }
+
+    else{
+         $('#here').css('color', 'red');
+    }
+    
+  
+  
+  //return false;
+   
+   
+});
+     
+
+
+  var count =0;
+  
+ $('.counter').on('click', function(e){
+      count++;
+    if(count == 7){
+         e.preventDefault();
+       $('#next').hide();
+       $('#q4-submit').show();
+       $('.letters').animate({
+           top:'0px',
+           left:'0px'
+       });
+       //$('#next').attr('id', 'q1');
+      
+     }
+
+  
+});
+
+
+
+
+ $('#q4-submit').on('click', function(e){
+     var name = localStorage.getItem('name');
+    $.ajax({
+        type:'POST',
+        url:'/level1/quiz4',
+        data: {score:score, name:name},
+        success: function(res){
+        if(res.score < 65){
+            
+         window.location.replace('/level1-section4');
+        }
+        else{
+            localStorage.setItem('level', 1.5);
+            window.location.replace('/level1-section5');
+        }
+        
+        }
+    });
+
+  });
+
+
+
+
+
+
+
+    });
+    </script>

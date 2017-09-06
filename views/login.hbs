@@ -1,0 +1,105 @@
+<link rel="stylesheet" href="https://bootswatch.com/superhero/bootstrap.css">
+<link rel="stylesheet" href="/public/css/level1.css">
+<script src="/public/js/jquery.js"> </script>
+<script src="/public/js/jquery-ui.js"></script>
+<script src="/public/js/users.js"> </script>
+<div class="container" id="login-style">
+    
+ <h2>Login</h2>
+<br>
+<form action="" method="POST">
+
+     <div class="form-group">
+    <label for="email">Email</label>
+   <input class="form-control" type="text" name="email" id="email">
+    </div>
+
+     <div class="form-group">
+    <label for="Password">Password</label>
+   <input  class="form-control" type="text" name="password" id="password">
+    </div>
+    
+     
+    <br>
+    <button id="logbtn" class="btn btn-success">Submit</button>
+    
+    
+     
+
+
+</form>
+
+</div>
+
+<script>
+   $(document).ready(function(){
+        $('#logbtn').on('click', function(e){
+          e.preventDefault();
+           
+           var email  = $('#email').val();
+            console.log(email);
+           var password  = $('#password').val();
+            console.log(password);
+           
+           if(email == "" || password == ""){
+               e.preventDefault();
+             $('#login-style').effect('shake');
+           }
+           
+        
+          $.ajax({
+             type: 'POST',
+             url: '/login',
+             data: {email:email, password:password},
+             success: function(res){
+                // res = JSON.parse(res);
+               
+              if(!res){  window.location.replace('/register');}
+              //console.log("The type is " +  res.user.level);
+              var level =  res.user.level;
+              //console.log(typeof level);
+               if(level !== 0){
+                localStorage.setItem('level', level);
+                localStorage.setItem('name', res.sessName);
+                localStorage.setItem('email', res.user.email);
+                console.log('This is the str var ' + res.str);
+               window.location.replace(res.str);
+               }
+
+              
+
+               else{
+                  localStorage.setItem('level','1.1');
+                localStorage.setItem('name', res.sessName);
+                 localStorage.setItem('email', res.user.email);
+               // console.log('Level is not equal to less than zero ' + str);
+               window.location.replace("/level1"); 
+               }
+                //localStorage.setItem('token_name', res.token);
+               //window.location.replace('/dashboard');
+               //console.log('This is the data from the server ' + ' ' + res);
+             },
+
+             
+            error: function(xhr){
+                //window.location.replace('/err');
+                console.log(xhr.responseText);
+            }
+
+            });
+        
+
+
+
+
+        });
+            
+   
+    });
+
+
+
+
+
+
+</script>

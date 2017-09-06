@@ -1,0 +1,162 @@
+<link rel="stylesheet" href="https://bootswatch.com/superhero/bootstrap.css">
+<link rel="stylesheet" href="/public/css/landing.css">
+<script src="/public/js/jquery.js"> </script>
+<script src="/public/js/jquery-ui.js"></script>
+
+{{> desktop}}
+<div id="session-data">{{sessName}}</div>
+<div id="session-id">{{sessId}}</div>
+
+
+
+  <div class="row" style="margin-left:10px;">
+  
+  <div class="col-md-7 col-lg-7 col-xs-7"  id="profile-corner">
+    <h2>{{sessName}} Dashboard</h2><hr style="border: solid 4px #ff6a4d"><br>
+   
+    <a href="#" class="thumbnail">
+     <img src="/public/images/profiles/{{user.profilePic}}" alt="..." style="max-width:200px; max-height:200px;">
+    </a>
+    <br>
+  
+  <button style="margin-left:20px;" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Choose Photo
+</button>
+<br>
+
+    <table class="table">
+     <th>Points</th>
+     <th>level</th>
+     <th>Quiz avg</th>
+     <tr><td> {{user.points}}</td><td>{{user.level}}</td><td>{{user.avg}}</td></tr>
+
+
+    </table>
+
+    <br>
+    <br> 
+    
+     <button id="rank" class="btn btn-success">Get Global Ranking</button>
+     <div id="user-rank" class="badge dash-big"></div>
+    <!-- Button trigger modal -->
+
+    <!--<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="Tooltip on left">Tooltip on left</button>-->
+    </div><!--end first col-->
+    <div class="col-md-4 col-xs-4 col-lg-4" id="rankings-list">
+   <h2>Top Ranked Users</h2>
+   <table class="table">
+  
+    <th class="dash-big">User Name</th>
+    <th class="dash-big">Rank</th>
+    <th class="dash-big">Score</th>
+   {{#each data}}
+    <tr>
+     
+      <td><img style="max-height:40px; max-width:40px;margin-right:5px;" src="/public/images/profiles/{{this.profilePic}}" alt="no profile"> {{this.name}}</td>
+      <td class="dash-big">{{this.ranking}}</td>
+      <td class="dash-big">{{this.points}}</td>
+    </tr>
+    {{/each}}
+     </table>
+     
+
+    </div>
+    
+    
+    </div><!--end row-->
+   <!--end container-->
+  <!--first Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+       <div id="form-hide">
+<form action=""
+      method="POST"
+      class="dropzone"
+      id="my-awesome-dropzone" enctype="multipart/form-data">
+      
+      <input type="file" name="file" id="file"/>
+      
+      
+      
+      <br>
+<button id="upload-pic" class="btn btn-success">Upload</button>
+      </form>
+</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+   <script>
+    $(document).ready(function(){
+      $('#session-data').hide();
+    $('#rank').on('click', function(e){
+     var name = localStorage.getItem('name');
+     $.ajax({
+     type: 'POST',
+     url: '/ranking',
+     data: {name:name},
+     success: function(res){
+     $('#user-rank').text(res.user.name+","+ " " + "You're ranked number " + " " + res.user.ranking);
+     }
+
+
+     });
+    
+    });
+
+     $('#upload-pic').on('click', function(e){
+      e.preventDefault();
+     //e.preventDefault();
+     // e.preventDefault();
+     
+    /* var picName = $('#profile-pic').val().replace(/C:\\fakepath\\/g, '');
+     sessionStorage.setItem('profile', picName);
+     
+   });*/
+  
+     var phile = $('#file').val().replace(/C:\\fakepath\\/, '');
+     console.log("THis is the file" + " " + phile);
+    $.ajax({
+       type:'POST',
+       url: '/userdashboard',
+       data: {file: phile},
+       success: function(res){
+        
+        console.log('THis is the PHILE ' + ' ' + res.user.profilePic);
+        window.location.replace('/userdashboard');
+          //$('.thumbnail').show();
+          //var filename = res.filename;
+          //var finalPic = sessionStorage.getItem('profile');
+            
+          //console.log("This is the " + " " + finalPic);
+     
+       }
+     });
+ 
+ 
+   });
+
+
+
+
+
+
+
+
+    });
+
+
+
+   </script>

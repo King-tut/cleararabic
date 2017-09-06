@@ -1,0 +1,644 @@
+
+<link rel="stylesheet" href="https://bootswatch.com/superhero/bootstrap.css">
+<link rel="stylesheet" href="/public/css/level1.css">
+<script src="/public/js/jquery.js"> </script>
+<script src="/public/js/jquery-ui.js"></script>
+
+{{> desktop}}
+
+<div class="user-stats">
+          <ul>
+           <li class="make-big">{{sessName}}</li>
+           <li> <img class="" style="max-height:85px; max-width:125px;" src="/public/images/profiles/{{user.profilePic}}"></li>
+              <li style="font-size:18px; font-weight:bold;">Level 1 Section 5</li>
+              <li>Last score</li>  <li  style="padding-left:250px;" class="badge make-big">{{last_score}}</li>
+
+
+          </ul>
+              </div>
+<div class="row">
+   <div class="col-md-6" style="margin-left:30px;">
+       <h1>Level 2 Introduction<h1><br>
+        
+        <br>
+        <h3 style="text-align:center;">Adding Vowels to the letters</h3>
+        <h4 style="margin-top:35px; margin-bottom:35px;">There are only 3 vowels in Arabic</h4>
+        <table class="table">
+         <th>Name</th>
+         <th>Trans</th>
+         <th>Value</th>
+         <tr><td>Fatha</td><td>A</td><td><sapn class="make-big">`</span></td></tr>
+         <tr><td>Dammah</td><td>U</td><td><span class="make-big">ُ </span></td> </tr>
+          <tr><td>Kasrah</td><td>E</td><td><span class="make-big">_</span></td> </tr>
+
+
+        </table>
+        <br>
+        <p>Pretty simple and straight forward. A mark above the letter makes an "A" sound.
+            A mark below the letter makes an E/I sound.
+             Examples:</p>
+        <br>
+         <P class="make-big">بَ</p>
+        <p>The above letter BA with a fatha makes the sound BA'a, like a long "A". Let's look at the same letter, this time 
+            with the kasrah.</p><br>
+            <P class="make-big">بِ</p>
+        <p>The above letter BA with a kasra makes the BI or BEE sound. Like in BISMI بسمِ
+           With the word BISMI, we have both the sounds that the kasrah can make. Below the BA, it makes the BI sound.
+           Below the MEEM, it makes the ME sound. BISMI. WHich by the way, means "In the Name of".
+           </p><br>
+
+            <P class="make-big">بُ</p>
+        <p>The above letter BA with a DAMMAH makes the BU or BOO sound. This holds true with all letters. 
+            Instead of going through each of the letters in this way, take a look at 3 charts on the right with all 3 vowles for each letter. Below them, There
+            is also a video that pronounces the letter with the coresponding vowel.
+           </p><br>
+
+        <P class="make-big">أَبِيهِ</p>
+        <p>The above is the Arabic word for father, ABEE. Alif already makes the A sound, the kasrah below the BA is what makes the EE sound.
+            This is how we get ABEE. Let's try another one.</p><br>
+            <p class="make-big">أُمِّهِ</p>
+            <p>The above is the Arabic word for mother, UMI/UMEE. Dammah makes the U/ooh sound, while once again the kasrah below the meem makes the 
+                EE sound. This is how we get UMMI/UMEE.
+            </p><br>
+            <p>Now, if you're wondering, what is that symbol that looks like a side ways E above the meem, you're very astute.
+                That is called a SHADDA. It makes a double consonat. That is how we get UMMI. In English, we would write two M's,
+                in Arabic, the SHADDA makes the double sound. SHADDA is not a vowel. SUKON, which is a circle above the letter, makes a the letter silent.
+                This is not a vowel either. We will cover them in a few moments. Let's continue with the 3 vowels.
+
+            </p>
+            <br>
+              
+
+       <p>Let's train our mind and eyes to recognize the letters as well as identify the proper vowels.
+         Here is a exercise that will GOD willing aid in being able to do this. This exercise is based on the same style as the quizes that you have taken already, except, these are not quizes, 
+          Take your time and have some fun while learning to read Arabic.
+       </p>
+
+       <br>
+     
+       <div id="sample-div" style="float:left" >
+           <h3>Exercise 1 : Vowel A (Fatha)</h3>
+        <div class="landing-div">
+        <p>Which letter has the vowel fatha?</p>
+        <p class="make-big letters" id="correct">سَ</p>
+         <p class="make-big letters" id="wrong">سُ</p>
+          <p class="make-big letters" id="wrong">نِ</p>
+        </div>
+
+        <div class="landing-div">
+        <p>Which letter has the vowel fatha?</p>
+        <p class="make-big letters" id="wrong">أ</p>
+         <p class="make-big letters" id="correct">غََ</p>
+          <p class="make-big letters" id="wrong">جِ</p>
+        </div>
+
+        <div class="landing-div">
+        <p>Which letter has the vowel fatha?</p>
+        <p class="make-big letters" id="wrong">كّ</p>
+         <p class="make-big letters" id="correct">ثَ</p>
+          <p class="make-big letters" id="wrong">ؤْ</p>
+        </div>
+           
+           <button id="next" class="btn btn-success counter" style="margin-left:50px; margin-top:30px;">Next</button>
+          <button class="btn btn-success" id="restart">Restart</button>
+           
+           </div><!--end sample-div-->
+      
+       <div style="margin-left:330px; margin-top:0px;">
+        <h3 style="margin-left:50px;" id="answer-text">Answer here</h3><p id="here"></p><br><br>
+      <div id="answer-holder"></div>
+      </div>
+       
+        
+         
+       <div id="ex2" style="float:left">
+            <h3>Exercise 2 : Vowel I (Kasrah)</h3>
+        <div class="landing-div">
+        <p>Which letter has the vowel kasrah?</p>
+        <p class="make-big letters" id="wrong">سَ</p>
+         <p class="make-big letters" id="wrong">سُ</p>
+          <p class="make-big letters" id="correct">نِ</p>
+        </div>
+
+        <div class="landing-div">
+        <p>Which letter has the vowel kasrah?</p>
+        <p class="make-big letters" id="wrong">أ</p>
+         <p class="make-big letters" id="wrong">غََ</p>
+          <p class="make-big letters" id="correct">جِ</p>
+        </div>
+
+        <div class="landing-div">
+        <p>Which letter has the vowel kasrah?</p>
+        <p class="make-big letters" id="wrong">كّ</p>
+         <p class="make-big letters" id="correct">رِ</p>
+          <p class="make-big letters" id="wrong">ؤْ</p>
+        </div>
+           
+           
+           
+           
+           <button id="ex2-next" class="btn btn-success counter2" style="margin-left:45px; margin-top:30px;">Next 2</button>
+          <button class="btn btn-success" id="ex2-restart">Restart</button>
+           </div><!--end ex2-->
+         <div style="margin-left:330px; margin-top:0px;">
+        <h3 style="margin-left:50px;" id="answer-text-2">A 2</h3><p id="here2"></p><br><br>
+      <div id="answer-holder-2"></div>
+      </div>
+  <!--start of q3-->
+
+   <div id="ex3" style="float:left">
+            <h3>Exercise 3 : Vowel U (Dammah)</h3>
+        <div class="landing-div">
+        <p>Which letter has the vowel dammah?</p>
+        <p class="make-big letters" id="wrong">سَ</p>
+         <p class="make-big letters" id="correct">سُ</p>
+          <p class="make-big letters" id="wrong">نِ</p>
+        </div>
+
+        <div class="landing-div">
+        <p>Which letter has the vowel dammah?</p>
+        <p class="make-big letters" id="wrong">أ</p>
+         <p class="make-big letters" id="wrong">غََ</p>
+          <p class="make-big letters" id="correct">يُ</p>
+        </div>
+
+        <div class="landing-div">
+        <p>Which letter has the vowel dammah?</p>
+        <p class="make-big letters" id="wrong">كّ</p>
+         <p class="make-big letters" id="correct">ذٌ</p>
+          <p class="make-big letters" id="wrong">حّ</p>
+        </div>
+           
+           
+           
+           
+           <button id="ex3-next" class="btn btn-success counter3" style="margin-left:50px; margin-top:30px;">Next 3</button>
+          <button class="btn btn-success" id="ex3-restart">Restart</button>
+          
+          
+           </div><!--end ex3-->
+           
+           <div style="margin-left:330px; margin-top:0px;">
+        <h3 style="margin-left:50px;" id="answer-text-3">A 3</h3><p id="here3"></p><br><br>
+      <div id="answer-holder-3"></div>
+      </div>
+
+<a href="/level2-section2" role="button" class="btn btn-success" id="level2-section2-btn">Advance</a>
+
+       </div><!--end col 1-->
+        <div class="col-md-4" style="float:right;margin-right:30px;">
+            <h2>Level 2 Vocabulary Words</h2>
+             <table class="table table-striped table-hover">
+              <th>Arabic word</th>
+              <th>Transliteration</th>
+              <th>English</th>
+               {{#each vocabulary}}
+              <tr><td class="make-big">{{this.word}}</td><td>{{this.trans}}</td><td>{{this.english}}</td></tr>
+
+               {{/each}}
+             </table>
+             <br>
+             <div class="graphs" style="">
+             <h3>All letters with the vowel fatha</h3>
+             <img src="/public/images/all-fatha.jpg" alt="all-fatha" style="max-height:600px; max-width:400px;">
+             <hr>
+             <h3>All letters with the vowel kasrah</h3>
+             <img src="/public/images/all-kasrah.jpg" alt="all-kasrah" style="max-height:600px; max-width:400px;">
+              <hr>
+
+              <h3>All letters with the vowel dammah</h3>
+             <img src="/public/images/all-damah.jpg" alt="all-dammah" style="max-height:600px; max-width:400px;">
+              <hr>
+             </div><!--end of the graphs div-->
+             <br>
+            
+             <iframe style="margin-right:30px;" width="500" height="300" src="https://www.youtube.com/embed/yJVBxy31U3I" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+
+    </div><!--end row-->
+
+
+
+
+
+    <script>
+ $(document).ready(function(){
+     $('#restart').hide();
+     $('#ex2-restart').hide();
+      $('#ex3-restart').hide();
+     $('#ex2').hide();
+      $('#ex3').hide();
+     $('#answer-text-2').hide();
+      $('#answer-text-3').hide();
+     $('#answer-holder-2').hide();
+     $('#answer-holder-3').hide();
+     $('#level2-section2-btn').hide();
+     //$('#quiz3-link').hide();
+     //$('#scroll-up-message').hide();
+$("#sample-div div").each(function(e) {
+  
+    if (e != 0){
+      $(this).hide();
+    }
+
+    
+
+    
+        
+});
+
+$("#next").click(function(){
+ 
+    if ($("#sample-div div:visible").next().length != 0){
+       $("#sample-div div:visible").next().fadeIn().prev().hide();
+      
+    }
+       
+         
+    else {
+        $("#sample-div div:visible").fadeOut();
+        $("#sample-div div:first").fadeIn();
+        
+    }
+  
+   
+    return false;
+});
+  var count =1;
+  var total = 0;
+ $('.counter').on('click', function(e){
+      count++;
+    
+    
+});
+
+
+   
+   var correct = 0;
+ $('.letters').draggable({
+              stack: '.letters'
+          });
+          $('#answer-holder').droppable({
+              drop: function(event, ui){
+                 
+                  var here  = $('#here');
+              ans = $(ui.draggable).attr('id');
+              if(ans == 'wrong'){
+                total++;
+              }
+
+              if(total > 1){
+               here.text('You need more practice with the vowel fatha');
+               $('#next').hide();
+               $('.landing-div').hide();
+               $('#answer-holder').hide();
+               $('#restart').show();
+               $('.letters').animate({
+                   top:'0px',
+                   left:'0px'
+               });
+               total= 0;
+
+               
+              }
+
+              if(ans == 'correct'){
+                  correct++;
+                  console.log('This is correct count ' + ' ' + correct);
+
+              }
+
+              if(correct >= 3){
+                // $('#ex2').show();
+                 $('#sample-div').fadeOut('fast', function(){
+                     $('#ex2').fadeIn('fast');
+                     $('#answer-holder').hide();
+                     $('#answer-text').hide();
+                     //$('#answer-text-2').show();
+                     $('#answer-holder-2').show();
+                     $('#next').hide();
+                     
+                 });
+                
+                total = 0;
+                // $('#answer-holder').hide();
+                 $('#ex2-restart').hide();
+                $('#ex2 div').each(function(e){
+      if(e != 0){
+        $(this).hide();
+      }
+     });
+
+
+
+              }
+             
+             
+                 
+              
+               //here.text(ans);
+              } //end of the drop function
+
+              
+              
+          });
+
+ 
+      $('#restart').on('click', function(e){
+               $('#next').show();
+               $('.landing-div').show();
+               $('#answer-holder').show();
+               $('#here').text('');
+               $('#restart').hide();
+    
+           $('.letters').animate({
+               top:'0px',   
+               left:'0px'
+           });
+
+     $('#sample-div div').each(function(e){
+      if(e != 0){
+        $(this).hide();
+      }
+     });
+
+    
+
+ });
+
+   $("#ex2-next").click(function(){
+ 
+    if ($("#ex2 div:visible").next().length != 0){
+       $("#ex2 div:visible").next().fadeIn().prev().hide();
+      
+    }
+       
+         
+    else {
+        $("#ex2 div:visible").fadeOut();
+        $("#ex2 div:first").fadeIn();
+        
+    }
+  
+   
+    return false;
+});
+
+var count2 =1;
+  var total2 = 0;
+ $('.counter2').on('click', function(e){
+      count2++;
+      if(total2 > 1 && count2 < 3){
+        $('.letters').animate({
+            top:'0px',
+            left:'0px'
+        });
+      }
+    
+    
+});
+
+//start of the second drop function
+
+ var correct2 = 0;
+ $('.letters').draggable({
+              stack: '.letters'
+          });
+          $('#answer-holder-2').droppable({
+              drop: function(event, ui){
+                 
+                  var here  = $('#here2');
+              ans = $(ui.draggable).attr('id');
+              if(ans == 'wrong'){
+                total2++;
+              }
+
+              if(total2 > 1){
+                  $('#answer-text').hide();
+                  $('#answer-text-2').show();
+               here.text('You need more practice with the vowel kasrah');
+               $('#ex2-next').hide();
+               $('.landing-div').hide();
+               $('#answer-holder-2').hide();
+               $('#ex2-restart').show();
+               $('.letters').animate({
+                   top:'0px',
+                   left:'0px'
+               });
+               total2= 0;
+
+               
+              }
+
+              if(ans == 'correct'){
+                  correct2++;
+                  console.log('This is correct count ' + ' ' + correct2);
+
+              }
+
+              if(correct2 >= 3){
+                // $('#ex2').show();
+                 $('#ex2').fadeOut('fast', function(){
+                     $('#ex3').fadeIn('fast');
+                     $('#answer-holder-2').hide();
+                     $('#answer-text-2').hide();
+                     $('#answer-text-3').show();
+                     $('#answer-holder-3').show();
+                     $('#ex2-next').hide();
+                     
+                 });
+                
+                total2 = 0;
+                // $('#answer-holder').hide();
+                 $('#ex2-restart').hide();
+                $('#ex3 div').each(function(e){
+      if(e != 0){
+        $(this).hide();
+      }
+     });
+
+
+
+              }
+             
+             
+                 
+              
+               //here.text(ans);
+              } //end of the second drop function
+
+              
+              
+          });
+    //restart #2
+
+ $('#ex2-restart').on('click', function(e){
+               $('#ex2-next').show();
+               $('.landing-div').show();
+               $('#answer-holder-2').show();
+               $('#here2').text('');
+               $('#ex2-restart').hide();
+               $('#answer-text2').show();
+    
+           $('.letters').animate({
+               top:'0px',   
+               left:'0px'
+           });
+
+     $('#ex2 div').each(function(e){
+      if(e != 0){
+        $(this).hide();
+      }
+     });
+
+    
+
+ });
+
+
+//start of q3
+
+ $("#ex3-next").click(function(){
+ 
+    if ($("#ex3 div:visible").next().length != 0){
+       $("#ex3 div:visible").next().fadeIn().prev().hide();
+      
+    }
+       
+         
+    else {
+        $("#ex3 div:visible").fadeOut();
+        $("#ex3 div:first").fadeIn();
+        
+    }
+  
+   
+    return false;
+});
+
+var count3 =1;
+  var total3 = 0;
+ $('.counter3').on('click', function(e){
+      count3++;
+    
+    
+});
+
+//start of q3 drop function
+
+var correct3 = 0;
+ $('.letters').draggable({
+              stack: '.letters'
+          });
+          $('#answer-holder-3').droppable({
+              drop: function(event, ui){
+                 
+                  var here  = $('#here3');
+              ans = $(ui.draggable).attr('id');
+              if(ans == 'wrong'){
+                total3++;
+              }
+
+              if(total3 > 1){
+                  $('#answer-text-2').hide();
+                  $('#answer-text-3').show();
+               here.text('You need more practice with the vowel kasrah');
+               $('#ex3-next').hide();
+               $('.landing-div').hide();
+               $('#answer-holder-3').hide();
+               $('#ex3-restart').show();
+               $('.letters').animate({
+                    top:'0px',
+                    left:'0px'
+
+               });
+               total3= 0;
+
+               
+              }
+
+              if(ans == 'correct'){
+                  correct3++;
+                  console.log('This is correct count ' + ' ' + correct2);
+
+              }
+
+              if(correct3 >= 3){
+                // $('#ex2').show();
+                 $('#ex3').fadeOut('fast', function(){
+                     $('#ex3-next').hide();
+                     $('#level2-section2-btn').show();
+                     localStorage.setItem('level',2.2);
+                     $('#answer-holder-3').hide();
+                     $('#answer-text-3').hide();
+                     //$('#answer-text-4').show();
+                     //$('#answer-holder-4').show();
+                     //$('#q3-next').hide();
+                     
+                 });
+                
+                total3 = 0;
+                // $('#answer-holder').hide();
+                 $('#ex3-restart').hide();
+                $('#ex3 div').each(function(e){
+      if(e != 0){
+        $(this).hide();
+      }
+     });
+
+
+
+              }
+             
+
+                 
+              
+               //here.text(ans);
+              } //end of the second drop function
+
+              
+              
+          });
+
+
+$('#ex3-restart').on('click', function(e){
+               $('#ex3-next').show();
+               $('.landing-div').show();
+               $('#answer-holder-3').show();
+               $('#here3').text('');
+               $('#ex3-restart').hide();
+               $('#answer-text3').show();
+    
+           $('.letters').animate({
+               top:'0px',   
+               left:'0px'
+           });
+
+     $('#ex3 div').each(function(e){
+      if(e != 0){
+        $(this).hide();
+      }
+     });
+
+    
+
+ });
+
+  $('#level2-section2-btn').on('click', function(e){
+      var name = localStorage.getItem('name');
+      var level = localStorage.getItem('level');
+      $.ajax({
+          type: 'POST',
+          url:'/level2-section2',
+          data: {name:name,level:level},
+          success: function(res){
+          
+          }
+      });
+
+  });
+
+
+ });
+</script>

@@ -1,0 +1,87 @@
+<link rel="stylesheet" href="/public/css/landing.css">
+<link rel="stylesheet" href="https://bootswatch.com/superhero/bootstrap.css">
+
+<script src="/public/js/jquery.js"> </script>
+<script src="/public/js/users.js"> </script>
+<div class="container" style="background-image: url('/public/images/barbar.jpg'); background-repeat:no-repeat;">
+    <div class="row">
+        <div class="col-md-6 col-sm-6 col-lg-6 col-offset-2">
+ <h2>Register</h2>
+<br>
+<form action="" method="POST">
+ <div class="form-group">
+    <label for="name">Name</label>
+    <input class="form-control" type="text" name="name" id="name">
+    </div>
+     <div class="form-group">
+    <label for="email">Email</label>
+   <input class="form-control" type="text" name="email" id="email">
+    </div>
+
+     <div class="form-group">
+    <label for="Password">Password</label>
+   <input  class="form-control" type="text" name="password" id="password">
+    </div>
+    
+     <div class="form-group">
+    <label for="confirm-Password">Confirm Password</label>
+   <input  class="form-control" type="text" name="confirm-password" id="confirm-password2">
+    </div>
+    <br>
+    <input type="submit" role="button" id="regbtn" value="submit">
+    
+    
+     
+
+
+</form>
+</div>
+</div>
+</div>
+
+<script>
+   $(document).ready(function(){
+        $('#regbtn').on('click', function(e){
+         // e.preventDefault();
+           var name  = $('#name').val();
+           console.log(name);
+           var email  = $('#email').val();
+            console.log(email);
+           var password  = $('#password').val();
+            console.log(password);
+           var confirmpassword  = $('#confirm-password').val();
+
+           
+        
+          $.ajax({
+             type: 'POST',
+             url: '/register',
+             data: {name: name, email:email, password:password},
+             success: function(res){
+              if(!res){ console.log('There was no response from the server');}
+                //localStorage.setItem('token_name', res.token);
+               
+               console.log('This is the data from the server ' + ' ' + res);
+               window.location.replace('/login');
+             },
+            error: function(xhr){
+                console.log(xhr.responseText);
+            }
+
+            });
+        
+
+
+
+
+        });
+            
+   
+    });
+
+
+
+
+
+
+</script>

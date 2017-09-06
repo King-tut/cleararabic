@@ -1,0 +1,28 @@
+h1,h2,h3,h4,h5,h6 {font-weight: bold;}
+body{
+    padding:10px;
+    margin-left:10px;
+}
+
+p{
+font-size:18px;
+}
+
+#next{
+    margin-left:0px;
+    margin-top:15px;
+    padding-bottom:4px;
+    
+}
+
+.letters{
+    height:70px;
+    width:140px;
+}
+
+
+
+.make-big{
+ font-size: 40px;
+
+}

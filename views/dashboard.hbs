@@ -1,0 +1,193 @@
+
+<link rel="stylesheet" href="https://bootswatch.com/superhero/bootstrap.css">
+<link rel="stylesheet" href="/public/css/landing.css">
+<script src="/public/js/jquery.js"> </script>
+<script src="/public/js/jquery-ui.js"></script>
+{{> desktop this }}
+<div id="session-data">{{sessName}}</div>
+<div id="session-id">{{sessId}}</div>
+{{#if profile}}
+ <div class="container">
+  <div class="row">
+  
+  <div class="col-md-6"  id="profile-corner">
+   
+
+    <a href="#" class="thumbnail">
+     <img src="/public/images/profiles/{{user.profilePic}}" alt="couldont load the pic" style="max-width:200px; max-height:200px;">
+    </a>
+  
+  <button id="change-pic-btn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#change-photo-modal">
+  Change photo
+</button>
+
+    <table class="table">
+     <th>Points</th>
+     <th>level</th>
+     <th>Best Score</th>
+     <tr><td> {{user.points}}</td><td>{{user.level}}</td><td>{{user.bestscore}}</td></tr>
+
+
+    </table>
+
+    <br>
+    <br> 
+    <!-- Button trigger modal -->
+
+    <!--<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="Tooltip on left">Tooltip on left</button>-->
+    </div><!--end first col-->
+    <div class="col-md-4">
+      <div id="user-dashboard-nav">
+     <h2>{{user.name}} dashboard</h2><br>
+    
+     </div>
+     </div><!--end second col-->
+    
+    
+    </div><!--end row-->
+   </div><!--end container-->
+
+{{else}}
+<div class="row">
+  
+  <div class="col-md-5" id="profile-corner">
+    <div class="container">
+   
+    <h3>Welcome,  {{sessName}}</h3><br>
+    <h2 id="profile-heading">Want to add a profile picture?</h2>
+    <br> 
+    <img src="/public/images/default_profile_avatar.png" alt="No Photo selected">
+    <!-- Button trigger modal -->
+<button style="margin-left:20px;" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Choose file
+</button>
+   
+
+
+
+
+<br>
+<!--<img src="/public/images/profiles/{{filename}}" alt="..." style="max-width:200px; max-height:200px;">-->
+
+</div><!--end  container-->
+  
+</div><!--end  col-->
+<div class="col-md-5" style="margin-right:10px; float:right; border: solid 4px #ff6a4d; height:600px;" id="right-side-dash">
+ <table class="table">
+  <th> <span class="glyphicon glyphicon-usd dashicons"></span> Points</th>
+  <th> <img class="dashicons" src="/public/images/glyphicons-38-coins.png" style="max-height:30px; max-width:30px;"> Score</th>
+   <th> <img class="dashicons" src="/public/images/glyphicons-41-stats.png" style="max-height:30px; max-width:30px;"> Ranking</th>
+<tr><td>{{user.level}}</td><td>{{user.points}}</td><td>{{user.ranking}}</td></tr>
+
+
+ </table>
+</div>
+
+</div><!--end  row-->
+    
+
+
+
+
+    
+    
+    
+   
+  
+  
+   
+
+{{/if}}
+
+  
+
+
+<!--start of the modal-->
+
+
+
+<!--first Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+       <div id="form-hide">
+<form action=""
+      method="POST"
+      class="dropzone"
+      id="my-awesome-dropzone" enctype="multipart/form-data">
+      
+      <input type="file" name="file" id="file"/>
+      
+      
+      
+      <br>
+<button id="upload-pic" class="btn btn-success">Upload</button>
+      </form>
+</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<script>
+ $(document).ready(function(){
+     $('#session-data').hide();
+      $('#session-id').hide();
+      
+   var data = $('#session-data').text();
+   var sessId = $('#session-id').text();
+   sessionStorage.setItem('sessName', data);
+   sessionStorage.setItem('sessId', sessId);
+   //localStorage.setItem('name', data);
+   //console.log("this is the data that im tyring to get " + " " + data);
+ 
+   $('#upload-pic').on('click', function(e){
+      e.preventDefault();
+     //e.preventDefault();
+     // e.preventDefault();
+     
+    /* var picName = $('#profile-pic').val().replace(/C:\\fakepath\\/g, '');
+     sessionStorage.setItem('profile', picName);
+     
+   });*/
+  
+     var phile = $('#file').val().replace(/C:\\fakepath\\/, '');
+     console.log("THis is the file" + " " + phile);
+    $.ajax({
+       type:'POST',
+       url: '/dashboard',
+       data: {file: phile},
+       success: function(res){
+        
+        console.log('THis is the PHILE ' + ' ' + res.user.profilePic);
+        window.location.replace('/userdashboard');
+          //$('.thumbnail').show();
+          //var filename = res.filename;
+          //var finalPic = sessionStorage.getItem('profile');
+            
+          //console.log("This is the " + " " + finalPic);
+     
+       }
+     });
+ 
+ 
+   });
+
+ });
+</script>

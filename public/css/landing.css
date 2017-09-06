@@ -1,0 +1,122 @@
+body{
+    
+    padding:0;
+    margin:0;
+   
+
+}
+
+
+
+
+
+.jumbotron{
+   
+    height: 425px;
+  
+}
+
+.main-pic{
+    min-height: 260px;
+    min-width: 100%;
+}
+
+#fathia-pic{
+    margin-left:20%;
+}
+
+.letters-big{
+  font-size:18px;
+}
+#next,#quiz1-link,#q2-submit{
+    margin-left:160px;
+}
+
+.landing-sample{
+    text-align: center;
+    margin-bottom:50px;
+    margin-left: 70px;
+    max-height:700px;
+   
+    border: solid 4px #ff6a4d;
+   
+}
+.landing-sample tr td{
+    padding-left:17px;
+}
+
+#sample-quiz{
+    margin-left:60px;
+}
+
+.navbar{
+   background: #4e5d6c;
+    
+   
+}
+
+#profile-corner{
+    border:solid 4px #ff6a4d;
+    height:800px;
+   
+    padding-top:20px;
+
+}
+
+.dashicons{
+    background: white;
+}
+
+ul li {
+    list-style: none;
+    display: inline-block;
+    padding-right: 40px;
+}
+
+#user-dashboard-nav{
+    height:370px;
+    float:right;
+    background:white;
+    color:black;
+   
+}
+
+
+.sound-files{
+    height:100px;
+    width:55%;
+    background: whitesmoke;
+}
+
+footer{
+  position: relative;
+  margin-top: -180px;
+ 
+  /* negative value of footer height */
+  height: 180px;
+  clear: both;
+   
+    background-color:#4e5d6c;
+}
+
+.make-big{
+    font-size: 40px;
+}
+
+.dash-big{
+    font-size: 33px;
+    font-weight: bold;
+}
+
+#rankings-list{
+    background:#4e5d6c;
+    border:solid 4px #ff6a4d;
+    margin-left:15px;
+}
+
+ ul li{
+   
+    text-align: center;
+    list-style: none;
+    display: inline-block;
+}
